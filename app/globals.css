@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.max-container {
+  max-width: 1440px;
+  margin: 25px auto;
+}
+
+.btn-hover {
+  position: relative;
+  color: #333;
+  font-weight: 600;
+  text-decoration: none;
+}
+.btn-hover:before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  height: 6px;
+  width: 0;
+  background: #4070f4;
+  border-radius: 50px;
+  transition: width 0.3s ease;
+}
+
+.btn-hover:hover:before {
+  width: 100%;
+}
