@@ -34,8 +34,8 @@ const month = months[d.getMonth()];
 const day = weekday[d.getDay()];
 export default function Navbar() {
   return (
-    <nav className='flex bg-slate-200 rounded-full justify-evenly max-sm:justify-between items-center w-full max-container py-5 px-4'>
-      <h1 className='text-[#013FCB] font-bold max-sm:text-lg text-4xl '>
+    <nav className='flex justify-evenly max-sm:justify-between items-center w-full max-container py-5 px-4'>
+      <h1 className='text-[#013ecb] font-bold max-sm:text-lg text-4xl '>
         Task<span className='text-black'>Tracker</span>
       </h1>
       <div className='flex gap-2 sm:gap-5 max-sm:text-sm '>
