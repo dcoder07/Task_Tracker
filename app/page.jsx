@@ -9,7 +9,7 @@ export default function Home() {
       <div className=' basis-1/2 flex flex-col gap-5 leading-7 max-sm:relative max-sm:bottom-16'>
         <h1 className='font-bold text-2xl text-[#013FCB] '>Dashboard</h1>
         <p className='text-gray-700 text-xl max-sm:text-sm'>
-          Lorem Ipsum has been the industry's standard dummy text ever since the
+          Lorem Ipsum has been the industry standard dummy text ever since the
           1500s, when an unknown printer took a galley of type and scrambled it
           to make a type specimen book. It has survived not only five centuries,
           but also the leap into electronic typesetting, remaining essentially
