@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <main className='max-container flex max-xl:flex-col w-full mx-16 px-5 sm:p-16'>
       <div className='px-5 flex justify-center items-center relative bottom-32 max-sm:bottom-16 '>
-        <Image src={dashimg} />
+        <Image src={dashimg} alt='Dashboard-image' />
       </div>
       <div className=' basis-1/2 flex flex-col gap-5 leading-7 max-sm:relative max-sm:bottom-16'>
         <h1 className='font-bold text-2xl text-[#013FCB] '>Dashboard</h1>
