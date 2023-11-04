@@ -30,11 +30,11 @@ const month = months[d.getMonth()];
 const day = weekday[d.getDay()];
 export default function Navbar() {
   return (
-    <nav className='flex items-center mx-10 bg-[#F3F3F3] rounded-full pl-5 pr-24 w-fit max-container'>
-      <h1 className='text-[#013FCB] font-bold max-sm:text-6xl text-4xl m-5'>
+    <nav className='flex bg-slate-200 rounded-full justify-evenly max-sm:justify-between items-center w-full max-container py-5 px-4'>
+      <h1 className='text-[#013FCB] font-bold max-sm:text-xl text-4xl '>
         Task<span className='text-black'>Tracker</span>
       </h1>
-      <div className='flex justify-start gap-16 max-sm:text-2xl text-lg px-32 items-center font-semibold m-2'>
+      <div className='flex gap-2 sm:gap-5 sm:text-lg '>
         <a href='/' className='btn-hover'>
           Dashboard
         </a>
