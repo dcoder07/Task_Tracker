@@ -2,10 +2,11 @@ import Image from "next/image";
 import dashimg from "./components/dashimg.gif";
 export default function Home() {
   return (
-    <main className=  'max-container absolute  flex max-xl:flex-col w-full mx-16 px-5 sm:px-16'>
-      <div className='flex justify-center items-center relative bottom-16'>
+    <main className='max-container absolute flex max-xl:flex-col w-full mx-16 px-5 sm:px-16'>
+      <div className='flex justify-center items-center relative bottom-16 '>
         <Image src={dashimg} alt='dash-image' />
       </div>
+
       <div className=' basis-1/2 flex flex-col gap-5 leading-7 relative bottom-24 xl:top-16'>
         <h1 className='font-bold text-2xl text-[#013FCB] '>Dashboard</h1>
         <p className='text-gray-700 text-xl max-sm:text-sm'>

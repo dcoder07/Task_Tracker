@@ -4,7 +4,6 @@
 
 .max-container {
   max-width: 1440px;
-  margin: 0 auto;
 }
 
 .btn-hover {
@@ -17,7 +16,7 @@
   content: "";
   position: absolute;
   bottom: -2px;
-  height: 6px;
+  height: 3px;
   width: 0;
   background: #4070f4;
   border-radius: 50px;
@@ -26,4 +25,14 @@
 
 .btn-hover:hover:before {
   width: 100%;
+}
+
+.pill.high{
+  @apply bg-red-300 text-red-600;
+}
+.pill.low{
+  @apply bg-emerald-300 text-emerald-600;
+}
+.pill.medium{
+  @apply bg-yellow-300 text-yellow-600;
 }
