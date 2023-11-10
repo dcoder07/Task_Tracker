@@ -2,7 +2,7 @@ import Image from "next/image";
 import dashimg from "./components/dashimg.gif";
 export default function Home() {
   return (
-    <main className='max-container absolute flex max-xl:flex-col w-full mx-16 px-5 sm:px-16'>
+    <main className='max-container mx-auto absolute flex max-xl:flex-col w-full px-5 py-8 sm:px-16'>
       <div className='flex justify-center items-center relative bottom-16 '>
         <Image src={dashimg} alt='dash-image' />
       </div>
