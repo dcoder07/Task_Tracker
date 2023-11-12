@@ -1,59 +1,47 @@
-import React from "react";
-import dashboard from "./dashboard.svg";
-import ticket from "./list.png";
-import Image from "next/image";
-import Link from "next/link";
+"use client";
 
-const weekday = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-const d = new Date();
-const year = d.getFullYear();
-const date = d.getDate();
-const month = months[d.getMonth()];
-const day = weekday[d.getDay()];
+import React from "react";
+import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
+import { MdOutlineSpaceDashboard as DashboardIcon } from "react-icons/md";
+import { FaTasks as TicketsIcon } from "react-icons/fa";
+
 export default function Navbar() {
+  const date = new Date();
+  const router = useRouter();
+  const path = usePathname();
   return (
-    <nav className='flex justify-evenly max-sm:justify-between items-center w-full max-container  py-5 px-4 '>
-      <h1 className='text-[#013ecb] font-bold max-sm:text-lg text-4xl '>
-        Task<span className='text-black'>Tracker</span>
-      </h1>
-      <div className='flex gap-2 sm:gap-5 max-sm:text-sm  '>
-        <Link href='./' className=' flex items-center'>
-          <Image src={dashboard} alt='dashboard-icon' width={15} />
-          <button className='btn-hover'>Dashboard</button>
-        </Link>
-        <Link href='./tickets' className=' flex items-center'>
-          <Image src={ticket} alt='ticket-icon' width={15} />
-          <button className='btn-hover'>Tickets</button>
-        </Link>
-      </div>
-      <div className='max-sm:hidden '>
-        <span className='whitespace-nowrap font-semibold text-gray-600'>
-          {day}, <br />
-          {date} {month} {year}
-        </span>
+    <nav className='max-w-screen-xl sm:px-0 mx-auto py-6'>
+      <div className='bg-blue-200 p-4 px-8 rounded-full flex flex-row items-center justify-between'>
+        <div className='font-bold text-black text-2xl'>
+          Task<span className='text-[#013FCB]'>Tracker</span>
+        </div>
+        <div className='flex flex-row items-center gap-2'>
+          <div
+            className={`flex flex-row items-center gap-1 px-3 py-1 rounded-full cursor-pointer ${
+              path === "/" ? "bg-[#013FCB] text-white" : ""
+            }`}
+            onClick={() => router.push("/")}
+          >
+            <DashboardIcon size={18} />
+            <div className='max-sm:hidden'>Dashboard</div>
+          </div>
+          <div
+            className={`flex flex-row items-center gap-1 px-3 py-1 rounded-full cursor-pointer pnm ${
+              path === "/tickets" ? "bg-[#013FCB] text-white" : ""
+            }`}
+            onClick={() => router.push("/tickets")}
+          >
+            <TicketsIcon size={16} />
+            <div className='max-sm:hidden'>Tickets</div>
+          </div>
+        </div>
+        <div className='text-md text-black font-semibold px-2 py-1 rounded-full max-sm:hidden'>
+          {date.toUTCString().slice(0, -12)}
+        </div>
       </div>
     </nav>
   );
 }
+
+//  {date.toUTCString().slice(0, -12)}

@@ -3,7 +3,7 @@ import { tickets } from "../index.js";
 export default function TicketList() {
   return (
     <>
-    <div className="max-container m-4 grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5">
+    <div className="max-container grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5">
       {tickets.map((ticket) => (
         <div key={ticket.id} className="bg-white px-5 pt-5 rounded-2xl relative">
           <h3 className="text-lg font-bold text-slate-700 mb-4">{ticket.title}</h3>
