@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Salsa&display=swap");
+.font-script {
+  font-family: "Salsa", cursive;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -27,12 +32,12 @@
   width: 100%;
 }
 
-.pill.high{
+.pill-high {
   @apply bg-red-300 text-red-600;
 }
-.pill.low{
+.pill-low {
   @apply bg-emerald-300 text-emerald-600;
 }
-.pill.medium{
+.pill-medium {
   @apply bg-yellow-300 text-yellow-600;
 }
