@@ -1,10 +1,27 @@
+import { notFound } from "next/navigation";
 import React from "react";
+export const dynamicParams = true;
+//Static rendering : readying pages at the initial render making it faster
+export async function generateStaticParam() {
+  const data = await fetch("http://localhost:4000/tickets");
+
+  const tickets = await data.json();
+
+  return tickets.map((ticket) => {
+    id: ticket.id;
+  });
+}
+
 async function getDetails(id) {
   const res = await fetch("http://localhost:4000/tickets/" + id, {
     next: {
       revalidate: 60,
     },
   });
+
+  if (!res.ok) {
+    notFound();
+  }
 
   return res.json();
 }
@@ -25,12 +42,12 @@ export default async function TicketDetails({ params }) {
             <span className='text-green-600'>{ticket.user_email}</span>
           </small>
         </div>
-        <p className='mb-10 ml-2 text-gray-500 leading-7' >{ticket.body}</p>
+        <p className='mb-10 ml-2 text-gray-500 leading-7'>{ticket.body}</p>
         <div
-              className={`pill-${ticket.priority} absolute right-0 bottom-0 rounded-tl-2xl rounded-br-2xl px-2 py-1 `}
-            >
-              {ticket.priority} priority
-            </div>
+          className={`pill-${ticket.priority} absolute right-0 bottom-0 rounded-tl-2xl rounded-br-2xl px-2 py-1 font-semibold`}
+        >
+          {ticket.priority} priority
+        </div>
       </div>
     </main>
   );
