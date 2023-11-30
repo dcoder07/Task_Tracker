@@ -3,6 +3,8 @@ import Link from "next/link";
 import React from "react";
 
 async function getTickets() {
+  //imitate delay for the loader
+  await new Promise((resolve) => setTimeout(resolve, 2000));
   const res = await fetch("http://localhost:4000/tickets", {
     next: {
       revalidate: 0,

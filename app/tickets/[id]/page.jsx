@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import React from "react";
+import React, { Suspense } from "react";
 export const dynamicParams = true;
 //Static rendering : readying pages at the initial render making it faster
 export async function generateStaticParam() {
@@ -13,6 +13,8 @@ export async function generateStaticParam() {
 }
 
 async function getDetails(id) {
+  //imitate delay for loader
+  await new Promise((resolve) => setTimeout(resolve, 2000));
   const res = await fetch("http://localhost:4000/tickets/" + id, {
     next: {
       revalidate: 60,
@@ -38,7 +40,7 @@ export default async function TicketDetails({ params }) {
             {ticket.title}
           </h3>
           <small className='text-gray-500 font-semibold ml-2'>
-            Created by{" "}
+            Created by
             <span className='text-green-600'>{ticket.user_email}</span>
           </small>
         </div>

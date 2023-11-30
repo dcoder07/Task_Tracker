@@ -7,6 +7,17 @@
 @tailwind components;
 @tailwind utilities;
 
+.loader {
+  animation: rotateLogo 1s linear infinite;
+}
+@keyframes rotateLogo {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 .max-container {
   max-width: 1440px;
 }

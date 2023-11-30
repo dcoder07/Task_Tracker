@@ -1,5 +1,6 @@
-import React from "react";
+import React, { Suspense } from "react";
 import TicketList from "./TicketList";
+import Loading from "../loading";
 export default function page() {
   return (
     <div className='flex flex-col max-w-screen-xl mx-auto w-full my-10 max-sm:my-2 border-2 gap-8 '>
@@ -8,7 +9,9 @@ export default function page() {
         <p className='text-gray-500 text-[12px]'>Currenty open tickets</p>
       </div>
       <div className='mx-5'>
-        <TicketList />
+        <Suspense fallback={<Loading />}>
+          <TicketList />
+        </Suspense>
       </div>
     </div>
   );
