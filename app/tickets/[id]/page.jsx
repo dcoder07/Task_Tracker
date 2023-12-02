@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import React, { Suspense } from "react";
+import React from "react";
 export const dynamicParams = true;
 //Static rendering : readying pages at the initial render making it faster
 export async function generateStaticParam() {
