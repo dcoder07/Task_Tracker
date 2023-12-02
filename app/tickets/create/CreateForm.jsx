@@ -1,20 +1,43 @@
 "use client";
-import React, { use } from "react";
+import { useRouter } from "next/navigation";
+import React from "react";
 import { useState } from "react";
-
 export default function CreateForm() {
+  const router = useRouter();
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [user_email, setUserEmail] = useState("");
   const [priority, setPriority] = useState("low");
   const [isLoading, setLoading] = useState(false);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    const ticket = {
+      title,
+      body,
+      priority,
+      user_email,
+    };
+    const res = await fetch("http://localhost:4000/tickets", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(ticket),
+    });
+    if (res.status === 201) {
+      router.refresh(); //To refetch the new data
+      router.push("/tickets");
+    }
+  };
   return (
     <section>
       <span className='flex justify-center w-full my-10 font-bold text-[#013FCB] text-3xl'>
         Add New Ticket
       </span>
-      <form className='shadow-2xl md:w-[50%] w-[75%] gap-5 bg-blue-200 border-2 border-blue-600 rounded-sm h-auto flex flex-col p-5 mx-auto'>
+      <form
+        className='shadow-2xl md:w-[50%] w-[75%] gap-5 bg-blue-200 border-2 border-blue-600 rounded-sm h-auto flex flex-col p-5 mx-auto'
+        onSubmit={handleSubmit}
+      >
         <label className='flex flex-col gap-3'>
           <span className='font-semibold'>Title:</span>
           <input
