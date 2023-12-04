@@ -1,46 +1,46 @@
 {
   "tickets": [
     {
-      "id": "1",
-      "title": "Fix the footer links please",
-      "body": "Lorem ipsum Triforce sit amet, Linkus Hyruleus tempus Ganondorf. Nunc ocarina sagittis quis Majoras Mask. Nulla in metus arcu. Suspendisse potenti. In vel mauris varius, consectetur Zora ipsum eget, Master Sword porttitor urna. Fusce elementum urna elit, eget eleifend velit consectetur eget. Integer vel lobortis ipsum, vitae auctor Ocarina of Time. Donec sed urna dapibus, interdum magna a, eleifend magna. Curabitur tincidunt enim a neque volutpat. Phasellus auctor magna vel nunc pretium, ut volutpat justo tristique. Pellentesque cursus convallis mauris, in tempus enim tincidunt vitae.",
-      "priority": "low",
-      "user_email": "mario@netninja.dev"
-    },
-    {
-      "id": "2",
-      "title": "Add in a new stylesheet",
-      "body": " vitae.",
+      "title": "Event Website",
+      "body": "Make a landing page for the event.  Add a spotlight page to the club's website.",
       "priority": "medium",
-      "user_email": "mario@netninja.dev"
+      "user_email": "dishankpatil360@gmail.com",
+      "id": 1
     },
     {
-      "id": "3",
-      "title": "Fix the footer links",
-      "body": "Lorem ipsum Triforce sit amet, Linkus Hyruleus tempus Ganondorf. Nunc ocarina sagittis quis Majoras Mask. Nulla in metus arcu. Suspendisse potenti. In vel mauris varius, consectetur Zora ipsum eget, Master Sword porttitor urna. Fusce elementum urna elit, eget eleifend velit consectetur eget. Integer vel lobortis ipsum, vitae auctor Ocarina of Time. Donec sed urna dapibus, interdum magna a, eleifend magna. Curabitur tincidunt enim a neque volutpat. Phasellus auctor magna vel nunc pretium, ut volutpat justo tristique. Pellentesque cursus convallis mauris, in tempus enim tincidunt vitae.",
+      "title": "Data Structure and Algorithm",
+      "body": "Start DSA as soon as possible. Start by solving 5 problems per day.",
       "priority": "high",
-      "user_email": "peach@netninja.dev"
+      "user_email": "dishankjp05@gmail.com",
+      "id": 2
     },
     {
-      "id": "4",
-      "title": "Fix the footer links please2",
-      "body": "Lorem ipsum Triforce sit amet, Linkus Hyruleus tempus Ganondorf. Nunc ocarina sagittis quis Majoras Mask. Nulla in metus arcu. Suspendisse potenti. In vel mauris varius, consectetur Zora ipsum eget, Master Sword porttitor urna. Fusce elementum urna elit, eget eleifend velit consectetur eget. Integer vel lobortis ipsum, vitae auctor Ocarina of Time. Donec sed urna dapibus, interdum magna a, eleifend magna. Curabitur tincidunt enim a neque volutpat. Phasellus auctor magna vel nunc pretium, ut volutpat justo tristique. Pellentesque cursus convallis mauris, in tempus enim tincidunt vitae.",
+      "title": "Article Writing",
+      "body": "Write a Technical article on Hashnode about Rendering.",
       "priority": "low",
-      "user_email": "mario@netninja.dev"
+      "user_email": "rockyraven002@gmail.com",
+      "id": 3
     },
     {
-      "id": "5",
-      "title": "Add in a new stylesheet2",
-      "body": "Lorem ipsum Triforce sit amet, Linkus Hyruleus tempus Ganondorf. Nunc ocarina sagittis quis Majoras Mask. Nulla in metus arcu. Suspendisse potenti. In vel mauris varius, consectetur Zora ipsum eget, Master Sword porttitor urna. Fusce elementum urna elit, eget eleifend velit consectetur eget. Integer vel lobortis ipsum, vitae auctor Ocarina of Time. Donec sed urna dapibus, interdum magna a, eleifend magna. Curabitur tincidunt enim a neque volutpat. Phasellus auctor magna vel nunc pretium, ut volutpat justo tristique. Pellentesque cursus convallis mauris, in tempus enim tincidunt vitae.",
+      "title": "Content Writing",
+      "body": "Write content for the Case Analysis Template, Brochure, Rules etc for the event.",
       "priority": "medium",
-      "user_email": "mario@netninja.dev"
+      "user_email": "ashutshsingh2004@gmail.com",
+      "id": 4
     },
     {
-      "id": "6",
-      "title": "Fix the footer links2",
-      "body": "Lorem ipsum Triforce sit amet, Linkus Hyruleus tempus Ganondorf. Nunc ocarina sagittis quis Majoras Mask. Nulla in metus arcu. Suspendisse potenti. In vel mauris varius, consectetur Zora ipsum eget, Master Sword porttitor urna. Fusce elementum urna elit, eget eleifend velit consectetur eget. Integer vel lobortis ipsum, vitae auctor Ocarina of Time. Donec sed urna dapibus, interdum magna a, eleifend magna. Curabitur tincidunt enim a neque volutpat. Phasellus auctor magna vel nunc pretium, ut volutpat justo tristique. Pellentesque cursus convallis mauris, in tempus enim tincidunt vitae.",
+      "title": "Personality Development",
+      "body": "Do go for cycling, start reading again. Play Chess. Take care of your skin. Focus on coding and dev more. Start early.",
       "priority": "high",
-      "user_email": "peach@netninja.dev"
+      "user_email": "dishankjp05@gmail.com",
+      "id": 5
+    },
+    {
+      "title": "Complete It!",
+      "body": "Atleast do complete a single web series.",
+      "priority": "low",
+      "user_email": "rockyraven002@gmail.com",
+      "id": 6
     }
   ]
 }

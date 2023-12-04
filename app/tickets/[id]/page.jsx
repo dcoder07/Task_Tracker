@@ -17,7 +17,7 @@ async function getDetails(id) {
   await new Promise((resolve) => setTimeout(resolve, 2000));
   const res = await fetch("http://localhost:4000/tickets/" + id, {
     next: {
-      revalidate: 60,
+      revalidate: 0,
     },
   });
 
@@ -41,7 +41,7 @@ export default async function TicketDetails({ params }) {
           </h3>
           <small className='text-gray-500 font-semibold ml-2'>
             Created by
-            <span className='text-green-600'>{ticket.user_email}</span>
+            <span className='text-green-600'> {ticket.user_email}</span>
           </small>
         </div>
         <p className='mb-10 ml-2 text-gray-500 leading-7'>{ticket.body}</p>

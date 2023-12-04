@@ -1,6 +1,8 @@
+"use client";
 import next from "next";
 import Link from "next/link";
 import React from "react";
+import { MdAirlineSeatReclineExtra, MdDelete } from "react-icons/md";
 
 async function getTickets() {
   //imitate delay for the loader
@@ -10,7 +12,6 @@ async function getTickets() {
       revalidate: 0,
     },
   });
-
   return res.json();
 }
 export default async function TicketList() {
@@ -18,7 +19,7 @@ export default async function TicketList() {
   return (
     <>
       <div className='max-container grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5'>
-        {tickets.map((ticket) => (
+        {tickets.reverse().map((ticket) => (
           <div
             key={ticket.id}
             className='bg-white px-5 pt-5 rounded-2xl relative shadow-lg break-words'
@@ -36,6 +37,25 @@ export default async function TicketList() {
                 {ticket.priority} priority
               </div>
             </Link>
+            <button
+              className='text-white p-1 rounded-full bg-[#013FCB] w-fit absolute bottom-2'
+              onClick={(e) => {
+                fetch("http://localhost:4000/tickets/" + ticket.id, {
+                  method: "DELETE",
+                })
+                  .then((response) => {
+                    if (!response.ok) {
+                      throw new Error("Something went wrong!!!");
+                    }
+                  })
+                  .catch((e) => {
+                    console.log(e);
+                  });
+                document.location.reload();
+              }}
+            >
+              <MdDelete />
+            </button>
           </div>
         ))}
         {tickets.length === 0 && (
