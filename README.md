@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# TaskTracker
 
-## Getting Started
+---
 
-First, run the development server:
+<p>This web app allows users to manage their tasks by creating and tracking issues.</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+![Dashboard](https://cdni.iconscout.com/illustration/premium/thumb/dashboard-analysis-data-5624576-4685125.png?f=webp "The Dashboard")
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛒Features
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- Create issues with titles, descriptions, priorities, and owners.
+- View a dashboard with an overview of current tasks.
+- Filter and search for specific issues.
+- Mark issues as completed.
+- Delete completed issues.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 📱Dashboard
 
-## Learn More
+The dashboard provides an overview of your tasks. It displays:
 
-To learn more about Next.js, take a look at the following resources:
+- The number of open and closed issues.
+- A list of your most recently created issues.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🔍Issues
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+When creating an issue, you will need to provide the following information:
 
-## Deploy on Vercel
+- Title: A brief description of the issue.
+- Body: A detailed description of the issue.
+- Priority: The priority of the issue (low, medium, high).
+- Owner: The name of the person who owns the issue.
+- Once you have filled out the required information, click on the "Create Ticket" button.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+> To view all your issues, click on the "Tickets" link in the navbar.<br/>
+> To create a new issue, click on the "Create Ticket" icon.<br/>
+> To delete an issue, click on the "bin icon" next to the desired issue.
