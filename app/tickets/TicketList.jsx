@@ -7,7 +7,7 @@ import { MdAirlineSeatReclineExtra, MdDelete } from "react-icons/md";
 async function getTickets() {
   //imitate delay for the loader
   await new Promise((resolve) => setTimeout(resolve, 2000));
-  const res = await fetch("http://localhost:4000/tickets", {
+  const res = await fetch("https://testapi-ouv6.onrender.com/api/tickets", {
     next: {
       revalidate: 0,
     },
@@ -40,7 +40,7 @@ export default async function TicketList() {
             <button
               className='text-white p-1 rounded-full bg-[#013FCB] w-fit absolute bottom-2'
               onClick={(e) => {
-                fetch("http://localhost:4000/tickets/" + ticket.id, {
+                fetch("https://testapi-ouv6.onrender.com/api/tickets/" + ticket.id, {
                   method: "DELETE",
                 })
                   .then((response) => {

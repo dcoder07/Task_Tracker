@@ -3,7 +3,7 @@ import React from "react";
 export const dynamicParams = true;
 //Static rendering : readying pages at the initial render making it faster
 export async function generateStaticParam() {
-  const data = await fetch("http://localhost:4000/tickets");
+  const data = await fetch("https://testapi-ouv6.onrender.com/api/tickets");
 
   const tickets = await data.json();
 
@@ -15,7 +15,7 @@ export async function generateStaticParam() {
 async function getDetails(id) {
   //imitate delay for loader
   await new Promise((resolve) => setTimeout(resolve, 2000));
-  const res = await fetch("http://localhost:4000/tickets/" + id, {
+  const res = await fetch("https://testapi-ouv6.onrender.com/api/tickets/" + id, {
     next: {
       revalidate: 0,
     },

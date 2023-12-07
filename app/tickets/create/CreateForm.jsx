@@ -19,7 +19,7 @@ export default function CreateForm() {
       priority,
       user_email,
     };
-    const res = await fetch("http://localhost:4000/tickets", {
+    const res = await fetch("https://testapi-ouv6.onrender.com/api/tickets", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(ticket),
