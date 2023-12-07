@@ -1,3 +1,4 @@
+
 # TaskTracker
 
 ---
@@ -34,3 +35,5 @@ When creating an issue, you will need to provide the following information:
 > To view all your issues, click on the "Tickets" link in the navbar.<br/>
 > To create a new issue, click on the "Create Ticket" icon.<br/>
 > To delete an issue, click on the "bin icon" next to the desired issue.
+=======
+
