@@ -6,7 +6,7 @@ import { MdAirlineSeatReclineExtra, MdDelete } from "react-icons/md";
 
 async function getTickets() {
   //imitate delay for the loader
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   const res = await fetch("https://testapi-ouv6.onrender.com/api/tickets", {
     next: {
       revalidate: 0,
@@ -25,9 +25,18 @@ export default async function TicketList() {
             className='bg-white px-5 pt-5 rounded-2xl relative shadow-lg break-words'
           >
             <Link href={`/tickets/${ticket.id}`}>
-              <h3 className='text-lg font-bold text-slate-700 mb-4 rounded-full bg-gray-100 p-1 px-2 '>
+              <h3 className='text-xl font-bold text-slate-700 mb-4 rounded-full bg-gray-100 p-1 px-2 '>
                 {ticket.title}
               </h3>
+              <div className='flex justify-between items-center my-2 '>
+                <div className='rounded-full'>
+                  <img src='https://a.storyblok.com/f/191576/1200x800/215e59568f/round_profil_picture_after_.webp' className="h-10"/>
+                </div>
+                <div className='text-lg text-slate-500 font-thin'>
+                  <span>due date: </span>
+                  {ticket.due_date}
+                </div>
+              </div>
               <p className='mb-10 text-gray-500 '>
                 {ticket.body.slice(0, 200)}...
               </p>
@@ -40,9 +49,12 @@ export default async function TicketList() {
             <button
               className='text-white p-1 rounded-full bg-[#013FCB] w-fit absolute bottom-2'
               onClick={(e) => {
-                fetch("https://testapi-ouv6.onrender.com/api/tickets/" + ticket.id, {
-                  method: "DELETE",
-                })
+                fetch(
+                  "https://testapi-ouv6.onrender.com/api/tickets/" + ticket.id,
+                  {
+                    method: "DELETE",
+                  }
+                )
                   .then((response) => {
                     if (!response.ok) {
                       throw new Error("Something went wrong!!!");
