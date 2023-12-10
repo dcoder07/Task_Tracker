@@ -1,14 +1,17 @@
 "use client";
-import { DatePicker } from "antd";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { useState } from "react";
+import { DatePicker } from "antd";
+const dateFormatList = ["DD/MM/YYYY"];
+
 export default function CreateForm() {
   const router = useRouter();
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [user_email, setUserEmail] = useState("");
   const [priority, setPriority] = useState("low");
+  const [due_date, setDueDate] = useState("");
   const [isLoading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -19,6 +22,7 @@ export default function CreateForm() {
       body,
       priority,
       user_email,
+      due_date,
     };
     const res = await fetch("https://testapi-ouv6.onrender.com/api/tickets", {
       method: "POST",
@@ -30,6 +34,7 @@ export default function CreateForm() {
       router.push("/tickets");
     }
   };
+
   return (
     <section>
       <span className='flex justify-center w-full my-10 font-bold text-[#013FCB] text-3xl'>
@@ -81,8 +86,13 @@ export default function CreateForm() {
           />
         </label>
         <label>
-        <span className='font-semibold'>Pick a Date:</span>
-          <DatePicker/>
+          <span className='font-semibold'>Pick a Date : </span>
+          <DatePicker
+            format={dateFormatList}
+            onChange={(date, dateString) => {
+              setDueDate(dateString);
+            }}
+          />
         </label>
         <button
           className='bg-[#013FCB] font-semibold hover:scale-110 transition delay-300 duration-500 text-white px-2 py-1 mx-auto mt-2 rounded-full'
