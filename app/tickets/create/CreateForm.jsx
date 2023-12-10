@@ -1,4 +1,5 @@
 "use client";
+import { DatePicker } from "antd";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { useState } from "react";
@@ -78,6 +79,10 @@ export default function CreateForm() {
             value={user_email}
             type='text'
           />
+        </label>
+        <label>
+        <span className='font-semibold'>Pick a Date:</span>
+          <DatePicker/>
         </label>
         <button
           className='bg-[#013FCB] font-semibold hover:scale-110 transition delay-300 duration-500 text-white px-2 py-1 mx-auto mt-2 rounded-full'
