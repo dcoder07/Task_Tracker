@@ -1,8 +1,9 @@
 "use client";
 import next from "next";
 import Link from "next/link";
+import Image from "next/image";
 import React from "react";
-import { MdAirlineSeatReclineExtra, MdDelete } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
 
 async function getTickets() {
   //imitate delay for the loader
@@ -29,8 +30,14 @@ export default async function TicketList() {
                 {ticket.title}
               </h3>
               <div className='flex justify-between items-center my-2 '>
-                <div className='rounded-full'>
-                  <img src='https://a.storyblok.com/f/191576/1200x800/215e59568f/round_profil_picture_after_.webp' className="h-10"/>
+                <div>
+                  <Image
+                    src={ticket.imgSrc}
+                    width={50}
+                    height={50}
+                    alt='Picture of the employee'
+                    className='rounded-full'
+                  />
                 </div>
                 <div className='text-lg text-slate-500 font-thin'>
                   <span>due date: </span>
