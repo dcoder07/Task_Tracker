@@ -16,11 +16,13 @@ const Dropdown = ({ handleChange }) => (
         options: [
           {
             label: "Jack",
-            value: "jack",
+            value:
+              "https://images.nightcafe.studio/jobs/6FALlclA3dpCUGJaByxI/6FALlclA3dpCUGJaByxI--1--3vcpj.jpg?tr=w-1600,c-at_max",
           },
           {
             label: "Lucy",
-            value: "lucy",
+            value:
+              "https://img.freepik.com/premium-photo/vector-illustration-about-art-people_975572-12153.jpg",
           },
         ],
       },
@@ -29,7 +31,8 @@ const Dropdown = ({ handleChange }) => (
         options: [
           {
             label: "Jian-Yang",
-            value: "jian-yang",
+            value:
+              "https://play-lh.googleusercontent.com/XVrFfr6JSs81AUFro3-_Yzyu7ZamixHegD2M8jQidormWDe9cBH-O2tCM40A7Zr0zSk=w240-h480-rw",
           },
         ],
       },

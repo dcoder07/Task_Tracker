@@ -13,7 +13,9 @@ export default function CreateForm() {
   const [priority, setPriority] = useState("low");
   const [due_date, setDueDate] = useState("");
   const [isLoading, setLoading] = useState(false);
-  const [imgSrc, setImgSrc] = useState("");
+  const [imgSrc, setImgSrc] = useState(
+    "https://img.freepik.com/premium-photo/vector-illustration-about-art-people_975572-12153.jpg"
+  );
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -23,7 +25,7 @@ export default function CreateForm() {
       priority,
       user_email,
       due_date,
-      imgSrc
+      imgSrc,
     };
     const res = await fetch("https://testapi-ouv6.onrender.com/api/tickets", {
       method: "POST",
@@ -96,7 +98,7 @@ export default function CreateForm() {
         </label>
         <label>
           <span className='font-semibold'>Assign work to : </span>
-          <Dropdown handleChange={(value) => setImgSrc(`/app/images/${value}.jpeg`) } />
+          <Dropdown handleChange={(dropValue) => setImgSrc(dropValue)} />
         </label>
         <button
           className='bg-[#013FCB] font-semibold hover:scale-110 transition delay-300 duration-500 text-white px-2 py-1 mx-auto mt-2 rounded-full'

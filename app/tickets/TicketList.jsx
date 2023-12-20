@@ -3,7 +3,8 @@ import next from "next";
 import Link from "next/link";
 import Image from "next/image";
 import React from "react";
-import { MdAirlineSeatReclineExtra, MdDelete } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
+
 async function getTickets() {
   //imitate delay for the loader
   await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -29,12 +30,13 @@ export default async function TicketList() {
                 {ticket.title}
               </h3>
               <div className='flex justify-between items-center my-2 '>
-                <div className='rounded-full'>
+                <div>
                   <Image
                     src={ticket.imgSrc}
-                    width={10}
-                    height={10}
+                    width={50}
+                    height={50}
                     alt='Picture of the employee'
+                    className='rounded-full'
                   />
                 </div>
                 <div className='text-lg text-slate-500 font-thin'>
