@@ -7,7 +7,7 @@ import { MdDelete } from "react-icons/md";
 
 async function getTickets() {
   //imitate delay for the loader
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  await new Promise((resolve) => setTimeout(resolve, 100));
   const res = await fetch("https://testapi-ouv6.onrender.com/api/tickets", {
     next: {
       revalidate: 0,

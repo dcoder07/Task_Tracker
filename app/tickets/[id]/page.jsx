@@ -15,7 +15,7 @@ export async function generateStaticParam() {
 
 async function getDetails(id) {
   //imitate delay for loader
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  await new Promise((resolve) => setTimeout(resolve, 100));
   const res = await fetch(
     "https://testapi-ouv6.onrender.com/api/tickets/" + id,
     {
