@@ -41,7 +41,7 @@ export default function CreateForm() {
   return (
     <section className='h-[100vh]'>
       <span className='flex justify-center w-full my-10 font-bold text-[#013FCB] text-3xl'>
-        Add New Ticket
+        Add New Issues
       </span>
       <form
         className='shadow-2xl md:w-[50%] w-[75%] gap-5 bg-blue-200 border-2 border-blue-600 rounded-sm h-auto flex flex-col p-5 mx-auto'
