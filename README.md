@@ -30,10 +30,10 @@ When creating an issue, you will need to provide the following information:
 - Body: A detailed description of the issue.
 - Priority: The priority of the issue (low, medium, high).
 - Owner: The name of the person who owns the issue.
-- Once you have filled out the required information, click on the "Create Ticket" button.
+- Once you have filled out the required information, click on the "Create Issue" button.
 
-> To view all your issues, click on the "Tickets" link in the navbar.<br/>
-> To create a new issue, click on the "Create Ticket" icon.<br/>
+> To view all your issues, click on the "Issues" link in the navbar.<br/>
+> To create a new issue, click on the "Create Issue" icon.<br/>
 > To delete an issue, click on the "bin icon" next to the desired issue.
 
 

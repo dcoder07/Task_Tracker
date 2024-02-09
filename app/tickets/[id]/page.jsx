@@ -36,7 +36,7 @@ export default async function TicketDetails({ params }) {
   return (
     <main className='flex flex-col max-w-screen-xl  xl:mx-auto mx-8 gap-64 my-10 max-sm:my-2 relative'>
       <nav>
-        <h1 className='font-bold text-2xl text-[#013FCB] '>Ticket Details</h1>
+        <h1 className='font-bold text-2xl text-[#013FCB] '>Issues Details</h1>
       </nav>
       <div className='bg-white absolute top-20 w-full rounded-t-2xl h-[32vh] z-[-2]'>
         <Image

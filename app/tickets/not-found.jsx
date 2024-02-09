@@ -12,7 +12,7 @@ export default function NotFound() {
       <p className='text-slate-500 font-semibold'>
         Go back to see the
         <Link href='/tickets' className='underline text-[#013FCB]'>
-          Tickets
+          Issues
         </Link>
       </p>
     </div>

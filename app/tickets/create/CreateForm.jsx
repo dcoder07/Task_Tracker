@@ -105,7 +105,7 @@ export default function CreateForm() {
           disabled={isLoading}
         >
           {isLoading && <span>Adding...</span>}
-          {!isLoading && <span>Add Tickets</span>}
+          {!isLoading && <span>Add Issues</span>}
         </button>
       </form>
     </section>
