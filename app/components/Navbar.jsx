@@ -34,7 +34,7 @@ export default function Navbar() {
             onClick={() => router.push("/tickets")}
           >
             <TicketsIcon size={18} />
-            <div className='max-sm:hidden font-bold'> Tickets </div>
+            <div className='max-sm:hidden font-bold'> Issues </div>
           </div>
         </div>
         <div className='flex gap-5 justify-center items-center text-[25px] font-thin text-black px-2 py-1 rounded-full font-script'>
