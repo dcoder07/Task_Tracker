@@ -34,11 +34,15 @@ export default function Navbar() {
             onClick={() => router.push("/tickets")}
           >
             <TicketsIcon size={18} />
-            <div className='max-sm:hidden font-bold'> Issues  </div>
+            <div className='max-sm:hidden font-bold'> Issues </div>
           </div>
         </div>
         <div className='flex gap-5 justify-center items-center text-[25px] font-thin text-black px-2 py-1 rounded-full font-script'>
-         <div className="max-md:hidden"> {date.toUTCString().slice(0, -12)} </div> <UserButton afterSignOutUrl="https://magical-jaybird-36.accounts.dev/sign-in?redirect_url=http%3A%2F%2Flocalhost%3A3000%2F"/>
+          <div className='max-md:hidden'>
+            {" "}
+            {date.toUTCString().slice(0, -12)}{" "}
+          </div>{" "}
+          <UserButton afterSignOutUrl='/' />
         </div>
       </div>
     </nav>

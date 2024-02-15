@@ -1,5 +1,5 @@
 import { Rubik } from "next/font/google";
-import { ClerkProvider } from '@clerk/nextjs'
+import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 
@@ -13,12 +13,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
-    <html lang='en' className='bg-slate-200'>
-      <body className={rubik.className}>
-        <Navbar />
-        {children}
-      </body>
-    </html>
-    </  ClerkProvider>
+      <html lang='en' className='bg-slate-200'>
+        <body className={rubik.className}>
+          <Navbar />
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
