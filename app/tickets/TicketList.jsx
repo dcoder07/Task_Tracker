@@ -7,7 +7,6 @@ import { MdDelete } from "react-icons/md";
 
 async function getTickets() {
   //imitate delay for the loader
-  await new Promise((resolve) => setTimeout(resolve, 100));
   const res = await fetch("https://testapi-ouv6.onrender.com/api/tickets", {
     next: {
       revalidate: 0,
@@ -17,6 +16,12 @@ async function getTickets() {
 }
 export default async function TicketList() {
   const tickets = await getTickets();
+  if (tickets) return <TicketListClient serverTickets={tickets} />;
+}
+
+function TicketListClient({ serverTickets }) {
+  const [tickets, setTickets] = React.useState(serverTickets);
+
   return (
     <>
       <div className='max-container grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5'>
@@ -62,15 +67,15 @@ export default async function TicketList() {
                     method: "DELETE",
                   }
                 )
-                  .then((response) => {
+                  .then(async (response) => {
                     if (!response.ok) {
                       throw new Error("Something went wrong!!!");
                     }
+                    await getTickets().then((res) => setTickets(res));
                   })
                   .catch((e) => {
                     console.log(e);
                   });
-                document.location.reload();
               }}
             >
               <MdDelete />
