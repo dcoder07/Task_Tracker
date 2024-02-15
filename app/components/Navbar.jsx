@@ -39,9 +39,8 @@ export default function Navbar() {
         </div>
         <div className='flex gap-5 justify-center items-center text-[25px] font-thin text-black px-2 py-1 rounded-full font-script'>
           <div className='max-md:hidden'>
-            {" "}
-            {date.toUTCString().slice(0, -12)}{" "}
-          </div>{" "}
+            {date.toUTCString().slice(0, -12)}
+          </div>
           <UserButton afterSignOutUrl='/' />
         </div>
       </div>
