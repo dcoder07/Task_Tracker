@@ -7,11 +7,7 @@ import { MdDelete } from "react-icons/md";
 
 async function getTickets() {
   //imitate delay for the loader
-  const res = await fetch("https://testapi-ouv6.onrender.com/api/tickets", {
-    next: {
-      revalidate: 0,
-    },
-  });
+  const res = await fetch("https://testapi-ouv6.onrender.com/api/tickets", {});
   return res.json();
 }
 export default async function TicketList() {
