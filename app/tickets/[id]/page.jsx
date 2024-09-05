@@ -1,38 +1,16 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import React from "react";
-export const dynamicParams = true;
-//Static rendering : readying pages at the initial render making it faster
-export async function generateStaticParam() {
-  const data = await fetch("https://testapi-ouv6.onrender.com/api/tickets");
+import { getTicket } from "@/db/actions";
+import dayjs from "dayjs";
 
-  const tickets = await data.json();
+export default async function TicketDetails({ params }) {
+  const ticket = await getTicket(params.id);
 
-  return tickets.map((ticket) => {
-    id: ticket.id;
-  });
-}
-
-async function getDetails(id) {
-  //imitate delay for loader
-  await new Promise((resolve) => setTimeout(resolve, 100));
-  const res = await fetch(
-    "https://testapi-ouv6.onrender.com/api/tickets/" + id,
-    {
-      next: {
-        revalidate: 0,
-      },
-    }
-  );
-
-  if (!res.ok) {
+  if (!ticket) {
     notFound();
   }
 
-  return res.json();
-}
-export default async function TicketDetails({ params }) {
-  const ticket = await getDetails(params.id);
   return (
     <main className='flex flex-col max-w-screen-xl  xl:mx-auto mx-8 gap-64 my-10 max-sm:my-2 relative'>
       <nav>
@@ -49,7 +27,7 @@ export default async function TicketDetails({ params }) {
           Work Assigned to :
         </div>
         <div className='bg-gray-100 max-sm:text-xs font-bold text-slate-700 w-fit rounded-full p-1 px-2 absolute max-sm:top-12 max-sm:left-4 top-4 right-4'>
-          Due Date : {ticket.due_date}
+          Due Date : {dayjs(ticket.due_date).format("DD/MM/YYYY")}
         </div>
       </div>
       <div className='bg-white max-w-screen-xl px-5 pt-5 rounded-2xl shadow-lg break-words relative '>
@@ -58,8 +36,7 @@ export default async function TicketDetails({ params }) {
             {ticket.title}
           </h3>
           <small className='text-gray-500 font-semibold ml-2'>
-            Admin : 
-            <span className='text-green-600'> {ticket.user_email}</span>
+            Admin :<span className='text-green-600'> {ticket.user_email}</span>
           </small>
         </div>
         <p className='mb-10 ml-2 text-gray-500 leading-7'>{ticket.body}</p>

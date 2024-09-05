@@ -1,5 +1,5 @@
 import { Rubik } from "next/font/google";
-import { ClerkProvider } from "@clerk/nextjs";
+import { ClerkProvider,SignedIn } from "@clerk/nextjs";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 

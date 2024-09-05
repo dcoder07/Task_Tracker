@@ -1,9 +1,12 @@
 import React, { Suspense } from "react";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import Link from "next/link";
-import TicketList from "./TicketList";
+import { TicketList } from "./TicketList";
 import Loading from "../loading";
-export default function page() {
+import { getTickets } from "@/db/actions";
+
+export default async function page() {
+  const tickets = await getTickets();
   return (
     <div className='flex flex-col max-w-screen-xl mx-auto w-full my-10 max-sm:my-2 border-2 gap-8 '>
       <div className='flex justify-between items-center'>
@@ -19,9 +22,7 @@ export default function page() {
         </div>
       </div>
       <div className='mx-5'>
-        <Suspense fallback={<Loading />}>
-          <TicketList />
-        </Suspense>
+        <TicketList tickets={tickets} />
       </div>
     </div>
   );

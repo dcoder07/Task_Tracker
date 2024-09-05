@@ -1,33 +1,30 @@
 "use client";
-import next from "next";
+
 import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 import { MdDelete } from "react-icons/md";
+import { deleteTicket } from "@/db/actions";
 
-async function getTickets() {
-  //imitate delay for the loader
-  const res = await fetch("https://testapi-ouv6.onrender.com/api/tickets", {});
-  return res.json();
-}
-export default async function TicketList() {
-  const tickets = await getTickets();
-  if (tickets) return <TicketListClient serverTickets={tickets} />;
-}
+import dayjs from "dayjs";
 
-function TicketListClient({ serverTickets }) {
-  const [tickets, setTickets] = React.useState(serverTickets);
-
+export function TicketList({ tickets }) {
   return (
-    <>
-      <div className='max-container grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5'>
-        {tickets.reverse().map((ticket) => (
+    <div className='max-container grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5'>
+      {tickets.reverse().map((ticket) => {
+        const isDued = dayjs(ticket.due_date).isBefore(dayjs(Date.now()));
+        return (
           <div
             key={ticket.id}
             className='bg-white px-5 pt-5 rounded-2xl relative shadow-lg break-words'
           >
             <Link href={`/tickets/${ticket.id}`}>
-              <h3 className='text-xl font-bold text-slate-700 mb-4 rounded-full bg-gray-100 p-1 px-2 '>
+              <h3
+                className='text-xl font-bold text-slate-700 mb-4 rounded-full p-1 px-2'
+                style={{
+                  backgroundColor: isDued ? "#fee2e2" : "#f3f4f6",
+                }}
+              >
                 {ticket.title}
               </h3>
               <div className='flex justify-between items-center my-2 '>
@@ -42,7 +39,7 @@ function TicketListClient({ serverTickets }) {
                 </div>
                 <div className='text-lg text-slate-500 font-thin'>
                   <span>due date: </span>
-                  {ticket.due_date}
+                  {dayjs(ticket.due_date).format("DD/MM/YYYY")}
                 </div>
               </div>
               <p className='mb-10 text-gray-500 '>
@@ -56,34 +53,25 @@ function TicketListClient({ serverTickets }) {
             </Link>
             <button
               className='text-white p-1 rounded-full bg-[#013FCB] w-fit absolute bottom-2'
-              onClick={(e) => {
-                fetch(
-                  "https://testapi-ouv6.onrender.com/api/tickets/" + ticket.id,
-                  {
-                    method: "DELETE",
-                  }
-                )
-                  .then(async (response) => {
-                    if (!response.ok) {
-                      throw new Error("Something went wrong!!!");
-                    }
-                    await getTickets().then((res) => setTickets(res));
-                  })
-                  .catch((e) => {
-                    console.log(e);
-                  });
+              onClick={async () => {
+                try {
+                  console.log(ticket.id);
+                  await deleteTicket(ticket.id);
+                } catch (err) {
+                  console.log(error);
+                }
               }}
             >
               <MdDelete />
             </button>
           </div>
-        ))}
-        {tickets.length === 0 && (
-          <p className='font-bold text-center whitespace-nowrap text-4xl text-gray-500'>
-            There are no tickets open 😁!!!
-          </p>
-        )}
-      </div>
-    </>
+        );
+      })}
+      {tickets.length === 0 && (
+        <p className='font-bold text-center whitespace-nowrap text-4xl text-gray-500'>
+          There are no tickets open 😁!!!
+        </p>
+      )}
+    </div>
   );
 }

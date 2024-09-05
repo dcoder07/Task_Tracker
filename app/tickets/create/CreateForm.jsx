@@ -1,40 +1,56 @@
 "use client";
-import { useRouter } from "next/navigation";
+
 import React from "react";
 import { useState } from "react";
 import Dropdown from "/app/components/Dropdown";
 import DateComp from "/app/components/DateComp";
+import { createTicket } from "@/db/actions";
 
 export default function CreateForm() {
-  const router = useRouter();
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [user_email, setUserEmail] = useState("");
   const [priority, setPriority] = useState("low");
-  const [due_date, setDueDate] = useState("");
+  const [due_date, setDueDate] = useState(new Date());
   const [isLoading, setLoading] = useState(false);
   const [imgSrc, setImgSrc] = useState(
     "https://img.freepik.com/premium-photo/vector-illustration-about-art-people_975572-12153.jpg"
   );
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    const ticket = {
-      title,
-      body,
-      priority,
-      user_email,
-      due_date,
-      imgSrc,
-    };
-    const res = await fetch("https://testapi-ouv6.onrender.com/api/tickets", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(ticket),
-    });
-    if (res.status === 201) {
-      router.refresh(); //To refetch the new data
-      router.push("/tickets");
+    try {
+      e.preventDefault();
+      setLoading(true);
+
+      if (Date.now() / 1000 > due_date) {
+        throw new Error("Due Date is in past");
+      }
+
+      if (!RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g).test(user_email)) {
+        throw new Error("Email is invalid");
+      }
+
+      console.log({
+        title,
+        body,
+        priority,
+        user_email,
+        due_date,
+        imgSrc,
+      });
+
+      await createTicket({
+        title,
+        body,
+        priority,
+        user_email,
+        due_date,
+        imgSrc,
+      });
+    } catch (error) {
+      console.log(error);
+      alert(String(error));
+    } finally {
+      setLoading(false);
     }
   };
 
