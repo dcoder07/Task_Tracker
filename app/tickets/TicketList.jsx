@@ -9,56 +9,53 @@ import { deleteTicket } from "@/db/actions";
 import dayjs from "dayjs";
 
 export function TicketList({ tickets }) {
+  const reversedTickets = [...tickets].reverse();
+
   return (
-    <div className='max-container grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5'>
-      {tickets.reverse().map((ticket) => {
+    <div className='max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 select-none'>
+      {reversedTickets.map((ticket) => {
         const isDued = dayjs(ticket.due_date).isBefore(dayjs(Date.now()));
         return (
           <div
             key={ticket.id}
-            className='bg-white px-5 pt-5 rounded-2xl relative shadow-lg break-words'
+            className='glass-card card-hover p-5 rounded-3xl relative overflow-hidden transition-all duration-300 select-none'
           >
             <Link href={`/tickets/${ticket.id}`}>
-              <h3
-                className='text-xl font-bold text-slate-700 mb-4 rounded-full p-1 px-2'
-                style={{
-                  backgroundColor: isDued ? "#fee2e2" : "#f3f4f6",
-                }}
-              >
-                {ticket.title}
-              </h3>
-              <div className='flex justify-between items-center my-2 '>
-                <div>
-                  <Image
-                    src={ticket.imgSrc}
-                    width={50}
-                    height={50}
-                    alt='Picture of the employee'
-                    className='rounded-full'
-                  />
-                </div>
-                <div className='text-lg text-slate-500 font-thin'>
-                  <span>due date: </span>
-                  {dayjs(ticket.due_date).format("DD/MM/YYYY")}
+              <div className='flex justify-start items-center mb-4'>
+                <h3 className='text-lg font-bold text-cyan-100'>{ticket.title}</h3>
+              </div>
+
+              <div className='flex items-center gap-3 mb-3'>  
+                <Image
+                  src={ticket.imgSrc}
+                  width={50}
+                  height={50}
+                  alt='Assigned user'
+                  className='rounded-full ring-2 ring-cyan-300/40'
+                />
+                <div className='text-sm text-slate-300'>
+                  due {dayjs(ticket.due_date).format("DD MMM YYYY")}
                 </div>
               </div>
-              <p className='mb-10 text-gray-500 '>
-                {ticket.body.slice(0, 200)}...
+
+              <p className='mb-10 text-slate-300 text-sm leading-relaxed'>
+                {ticket.body}
               </p>
+
               <div
-                className={`pill-${ticket.priority} absolute right-0 bottom-0 rounded-tl-2xl rounded-br-2xl px-2 py-1 font-semibold`}
+                className={`pill-${ticket.priority} absolute right-3 bottom-3 rounded-full px-3 py-1 text-xs font-semibold`}
               >
                 {ticket.priority} priority
               </div>
             </Link>
+
             <button
-              className='text-white p-1 rounded-full bg-[#013FCB] w-fit absolute bottom-2'
+              className='absolute top-4 right-4 bg-gradient-to-tr from-red-500 to-rose-500 hover:from-red-400 hover:to-rose-400 text-white p-2 rounded-full shadow-lg transition-transform duration-300'
               onClick={async () => {
                 try {
-                  console.log(ticket.id);
                   await deleteTicket(ticket.id);
                 } catch (err) {
-                  console.log(error);
+                  console.error(err);
                 }
               }}
             >
@@ -67,9 +64,10 @@ export function TicketList({ tickets }) {
           </div>
         );
       })}
+
       {tickets.length === 0 && (
-        <p className='font-bold text-center whitespace-nowrap text-4xl text-gray-500'>
-          There are no tickets open 😁!!!
+        <p className='col-span-full text-center text-2xl font-bold text-cyan-200'>
+          No open tickets yet — create one to get started.
         </p>
       )}
     </div>

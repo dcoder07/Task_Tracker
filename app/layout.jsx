@@ -1,7 +1,7 @@
 import { Rubik } from "next/font/google";
-import { ClerkProvider,SignedIn } from "@clerk/nextjs";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import PageLoader from "./components/PageLoader";
 
 const rubik = Rubik({ subsets: ["latin"] });
 
@@ -12,13 +12,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider>
-      <html lang='en' className='bg-slate-200'>
-        <body className={rubik.className}>
-          <Navbar />
-          {children}
-        </body>
-      </html>
-    </ClerkProvider>
+    <html lang='en'>
+      <body className={`${rubik.className} min-h-screen text-slate-100`}>
+        <PageLoader />
+        <Navbar />
+        <main className='min-h-[calc(100vh-80px)] pb-12'>{children}</main>
+      </body>
+    </html>
   );
 }

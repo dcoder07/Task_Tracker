@@ -1,8 +1,8 @@
-import { SignedIn } from "@clerk/nextjs";
 import React from "react";
+import AuthGuard from "@/app/components/AuthGuard";
 
 const TicketsLayout = ({ children }) => {
-  return <SignedIn>{children}</SignedIn>;
+  return <AuthGuard>{children}</AuthGuard>;
 };
 
 export default TicketsLayout;
